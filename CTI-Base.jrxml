@@ -224,9 +224,9 @@
 				<text><![CDATA[General Information:]]></text>
 			</staticText>
 		</band>
-		<band height="73">
+		<band height="58">
 			<subreport>
-				<reportElement x="20" y="24" width="510" height="16" uuid="b1ad51d0-92e4-42fb-aed8-af6a900c36b3"/>
+				<reportElement x="20" y="10" width="510" height="40" uuid="b1ad51d0-92e4-42fb-aed8-af6a900c36b3"/>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA["result.jasper"]]></subreportExpression>
 			</subreport>
@@ -236,6 +236,13 @@
 				<reportElement x="0" y="10" width="529" height="27" uuid="f05cbf79-1e7f-4dcb-b900-b1543f7695fa"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{assortmentRows})]]></dataSourceExpression>
 				<subreportExpression><![CDATA["productList.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="58">
+			<subreport>
+				<reportElement x="10" y="8" width="519" height="32" uuid="72d98cae-8154-4f98-86a3-73a64c5de940"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["pictures.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
