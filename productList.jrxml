@@ -12,6 +12,22 @@
 	<field name="wFound" class="java.lang.Float"/>
 	<field name="wOrdered" class="java.lang.Float"/>
 	<field name="comment" class="java.lang.String"/>
+	<variable name="totalWeightExpected" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{wOrdered}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0F]]></initialValueExpression>
+	</variable>
+	<variable name="totalWeightFound" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{wFound}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0F]]></initialValueExpression>
+	</variable>
+	<variable name="totalCartonsFound" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{cFound}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="totalCartonsOrdered" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{cOrdered}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -118,7 +134,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="21" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="-20" y="0" width="89" height="20" uuid="8e03281c-6259-4d79-8bf6-b7200b63b5a3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e58557a-ac98-486f-ba14-60b8b7cf9673"/>
@@ -206,6 +222,90 @@
 		</band>
 	</detail>
 	<summary>
-		<band height="21" splitType="Stretch"/>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="89" height="21" uuid="a0cf2a9b-9ce5-466a-9f00-6ea984210d94">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e58557a-ac98-486f-ba14-60b8b7cf9673"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="50" height="20" uuid="0704b1b2-eebe-46ba-b9ea-e2f680377180">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f9c19e0f-f0b0-4a13-91d2-251a0c8b0720"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="350" y="0" width="50" height="20" uuid="56c1c259-3c94-4b1b-8d79-0c01bf175fb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3183fc96-1608-4070-8dda-f3298b5b3dcb"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$V{totalCartonsFound}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="460" y="0" width="50" height="20" uuid="cf798bf0-929c-4b3b-bd7d-2f34cecd47f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="19efc4e9-ad81-46ed-81c7-5217fd83dc84"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{wFound}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="400" y="0" width="60" height="20" uuid="233d40a3-27c4-48c2-95dd-c33d7f8184c9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f07b3546-4f7b-497f-b696-28e5b3d275bd"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$V{totalWeightExpected}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="70" y="0" width="169" height="20" uuid="544f940f-d4da-4ceb-b496-aed3a677d8f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="336b796a-5adb-446b-990a-83ab0a9ce451"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="290" y="0" width="60" height="20" uuid="a7fdb7c6-c361-4600-a965-9ed5ed179369">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d716324-f8e8-4b84-bc2b-00600e265280"/>
+				</reportElement>
+				<box topPadding="4" leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$V{totalCartonsOrdered}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
